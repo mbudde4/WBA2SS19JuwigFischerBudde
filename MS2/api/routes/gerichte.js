@@ -22,47 +22,33 @@ router.get('/', (req, res, next) =>{
     
     var ausgabe=[100]; //hier wird alles gespeichert, was nachher durch get ausgegeben wird
     var x=0; //zaehlervariable
-    var leer=true; 
+    var leer=true; //gibt an ob die ausgabe der Gerichte Leer ist
     
-    for(var i=0; i<rezepte.rezepte.length;i++) {
+    for(var i=0; i<rezepte.rezepte.length;i++) { //es wird durch die gesamte Rezepte.json datei iteriert 
 
-        if((anz_lebensmittel.verfuegbareLebensmittel.toString().includes(rezepte.rezepte[i].inhalt.toString()))==true){
+        if((anz_lebensmittel.verfuegbareLebensmittel.toString().includes(rezepte.rezepte[i].inhalt.toString()))==true){  //vergleich welche eingegebenen Lebensmittel in welchen der Gerichte vorkommt
 
-            leer=false;
+            leer=false;  //sobald es ein Gericht gibt wo die eingegebenen Lebensmittel drin enthalten sind ist die Ausgabe der Gerichte nicht mehr leer
 
-            console.log(rezepte.rezepte[i].gericht+"\n"+"Inahlt:  "+rezepte.rezepte[i].inhalt+"\n"+"Nährwerte:  "+rezepte.rezepte[i].nährwerte);
-            console.log("\n\n")
+            //console.log(rezepte.rezepte[i].gericht+"\n"+"Inahlt:  "+rezepte.rezepte[i].inhalt+"\n"+"Nährwerte:  "+rezepte.rezepte[i].nährwerte); 
+           // console.log("\n\n")
 
-            ausgabe[x]=rezepte.rezepte[i].gericht;
-            ausgabe[x]=rezepte.rezepte[i].inhalt;
-            ausgabe[x]=rezepte.rezepte[i];
-            x++
+            ausgabe[x]=rezepte.rezepte[i].gericht; //Gerichte die zu den eingegebenen Lebensmittel passen werde in die ausgabe gespeichert 
+            ausgabe[x]=rezepte.rezepte[i].inhalt;  //Lebensmittel der Gerichte die zu den eingegebenen Lebensmittel passen werde in die ausgabe gespeichert 
+            ausgabe[x]=rezepte.rezepte[i];  //Nährwerte der Gerichte die zu den eingegebenen Lebensmittel passen werde in die ausgabe gespeichert 
+            x++ 
         }
         
-        if (leer==true){
+        if (leer==true){       //falls keine passenden Gerichte zu den eingegebenen Lebensmittel gefunden werden
             ausgabe[0]="Keine passenden Gerichte";
         }
     }
 
-    res.status(200).json({
+    res.status(200).json({  //ausgabe mit dem http status Code 200 (ok)
         gericht: ausgabe
     });
 
 });
 
-//Einzelnes Gericht
-router.get('/:gerichteId', (req, res, next) =>{
-    const id = req.params.gerichteId;
-    if(id === 'special'){
-    res.status(200).json({
-        message: 'You discovered the special ID',
-        id: id
-        });
-    } else {
-        res.status(200).json({
-            message: 'You passed an ID'
-        });
-    }
-});
 
 module.exports = router;
