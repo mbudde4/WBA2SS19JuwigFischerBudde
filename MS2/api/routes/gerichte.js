@@ -1,6 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
+'use strict';
+
+const fs = require('fs');
+
 //var ausgabelänge
 //var puffer
 
@@ -10,13 +14,12 @@ const router = express.Router();
 router.get('/', (req, res, next) =>{
 
     //Anwendung:EIngabe Array (an Lebensmittel) mit Lebensmittel in rezepte.Json vergleichen
-
-    var anz_lebensmittel = ["Eier", "Milch", "Butter","Spinat","Kartoffeln"]; 
+    let data = fs.readFileSync('lebensmittelliste.json');
+    //var anz_lebensmittel = ["Eier", "Milch", "Butter","Spinat","Kartoffeln"]; 
+    let anz_lebensmittel = JSON.parse(data);
   //  var anz_2 = ["Eier", "Milch", "Butter"];
 
-    'use strict';
-
-    const fs = require('fs');
+    
 
     let rawdata = fs.readFileSync('rezepte.json');
     let rezepte = JSON.parse(rawdata);
@@ -31,28 +34,24 @@ router.get('/', (req, res, next) =>{
 
     var ausgabe=[100];    
     var x=0;
-    var lehr=true;
+    var leer=true;
     
     for(var i=0; i<rezepte.rezepte.length;i++) {
 
-        if((anz_lebensmittel.toString().includes(rezepte.rezepte[i].inhalt.toString()))==true){
+        if((anz_lebensmittel.verfuegbareLebensmittel.toString().includes(rezepte.rezepte[i].inhalt.toString()))==true){
 
-            lehr=false;
+            leer=false;
 
             console.log(rezepte.rezepte[i].gericht+"\n"+"Inahlt:  "+rezepte.rezepte[i].inhalt+"\n"+"Nährwerte:  "+rezepte.rezepte[i].nährwerte);
             console.log("\n\n")
 
             ausgabe[x]=rezepte.rezepte[i].gericht;
-            x++;
             ausgabe[x]=rezepte.rezepte[i].inhalt;
-            x++
-            ausgabe[x]=rezepte.rezepte[i].nährwerte;
-            x++
-            ausgabe[x]="";
+            ausgabe[x]=rezepte.rezepte[i];
             x++
         }
         
-        if (lehr==true){
+        if (leer==true){
             ausgabe[0]="Keine passenden Gerichte";
         }
     }
