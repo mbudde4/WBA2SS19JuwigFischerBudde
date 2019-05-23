@@ -1,0 +1,1 @@
+https://api.edamam.com/api/food-database/parser?ingr=spaghetti&app_id=9a036e31&app_key=0c705a5799762c4bb11d4aa6d74eeb1a

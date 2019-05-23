@@ -1,0 +1,54 @@
+{
+  "katalog":"Hallowordl",
+  "rezepte": [
+        {
+        "gericht": "Spaghetti Bolognese",
+        "inhalt":"Eier,Milch,Butter",
+        "nährwerte":"zucker 3g, eiweiß 20g, Fett 18g, kcal 358g"
+
+        },
+      {
+      "gericht": "Spinat mit Kartoffeln und EI",
+      "inhalt": "Eier,Milch,Butter,Spinat,Kartoffeln",
+
+      "nährwerte":[
+                  {
+
+                    "zucker":"15g"
+                  },
+
+                  {
+                    "eiweiß":"18g"
+                  },
+                  {
+                    "Fett":"5g"
+                  },
+                  {
+                    "Kal":"254"
+                  }
+                  ]
+      },
+      {
+      "gericht": "Linsensuppe",
+      "inhalt": "Linsen,Gemüsebrühe,Oil,Möhren,Kartoffeln,Lauch",
+      "nährwerte":[
+                  {
+
+                    "zucker":"10g"
+                  },
+
+                  {
+                    "eiweiß":"21g"
+                  },
+                  {
+                    "Fett":"3g"
+                  },
+                  {
+                    "Kal":"334"
+                  }
+                  ]
+
+      }
+   
+  ]
+}
