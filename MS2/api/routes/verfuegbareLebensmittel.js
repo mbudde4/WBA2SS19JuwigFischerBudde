@@ -1,14 +1,6 @@
 const express = require('express');
 const router = express.Router();
-var	fs=require('fs');
-
-/*
-router.get('/', (req, res, next) =>{
-    res.status(200).json({
-        message: 'Lebensmittel were fetched'
-    });
-});
-*/
+var	fs=require('fs'); //zum scheibene und lesen von json-files
 
 //ueber diese Methode werden die verfuegbaren Lebensmittel hinzufeguegt und in eine JSON-Datei geschrieben
 
