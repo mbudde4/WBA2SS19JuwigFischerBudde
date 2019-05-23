@@ -1,0 +1,70 @@
+{
+  "katalog":"Hallowordl",
+  "rezepte": [
+        {
+        "gericht": "Spaghetti Bolognese",
+        "inhalt":"Eier,Milch,Butter",
+        "nährwerte":[
+          {
+
+            "zucker":"5g"
+          },
+
+          {
+            "eiweiß":"15g"
+          },
+          {
+            "Fett":"3g"
+          },
+          {
+            "Kal":"367"
+          }
+          ]
+
+
+        },
+      {
+      "gericht": "Spinat mit Kartoffeln und EI",
+      "inhalt": "Eier,Milch,Butter,Spinat,Kartoffeln",
+
+      "nährwerte":[
+                  {
+
+                    "zucker":"15g"
+                  },
+
+                  {
+                    "eiweiß":"18g"
+                  },
+                  {
+                    "Fett":"5g"
+                  },
+                  {
+                    "Kal":"254"
+                  }
+                  ]
+      },
+      {
+      "gericht": "Linsensuppe",
+      "inhalt": "Linsen,Gemüsebrühe,Oil,Möhren,Kartoffeln,Lauch",
+      "nährwerte":[
+                  {
+
+                    "zucker":"10g"
+                  },
+
+                  {
+                    "eiweiß":"21g"
+                  },
+                  {
+                    "Fett":"3g"
+                  },
+                  {
+                    "Kal":"334"
+                  }
+                  ]
+
+      }
+   
+  ]
+}
