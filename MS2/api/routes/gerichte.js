@@ -6,35 +6,23 @@ const router = express.Router();
 const fs = require('fs');
 
 //var ausgabelänge
-//var puffer
 
-//get anfrage der Gerichte mit ausgabelaenge und Puffer als Query Parameter
-
-//Liste aller Gerichte
+//Gibt alle Gerichte zurück, die zu den eingebenen Lebensmitteln passen
 router.get('/', (req, res, next) =>{
 
-    //Anwendung:EIngabe Array (an Lebensmittel) mit Lebensmittel in rezepte.Json vergleichen
+    //ließt die verfuegbarenLebensmittel aus der lebensmittel.json aus
     let data = fs.readFileSync('lebensmittelliste.json');
-    //var anz_lebensmittel = ["Eier", "Milch", "Butter","Spinat","Kartoffeln"]; 
     let anz_lebensmittel = JSON.parse(data);
-  //  var anz_2 = ["Eier", "Milch", "Butter"];
 
     
-
+    //ließt die Gerichte aus der lebensmittel.json aus
     let rawdata = fs.readFileSync('rezepte.json');
     let rezepte = JSON.parse(rawdata);
 
-
-    //console.log(rezepte.rezepte[0].inhalt);
-    //console.log(rezepte.rezepte[0].gericht);
-
     
-    //console.log(anz_lebensmittel.toString().includes(anz_2.toString(),0));
-
-
-    var ausgabe=[100];    
-    var x=0;
-    var leer=true;
+    var ausgabe=[100]; //hier wird alles gespeichert, was nachher durch get ausgegeben wird
+    var x=0; //zaehlervariable
+    var leer=true; 
     
     for(var i=0; i<rezepte.rezepte.length;i++) {
 
