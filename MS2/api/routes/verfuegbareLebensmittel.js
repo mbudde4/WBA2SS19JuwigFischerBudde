@@ -2,24 +2,23 @@ const express = require('express');
 const router = express.Router();
 var	fs=require('fs');
 
+/*
 router.get('/', (req, res, next) =>{
     res.status(200).json({
         message: 'Lebensmittel were fetched'
     });
 });
+*/
 
-
+//ueber diese Methode werden die verfuegbaren Lebensmittel hinzufeguegt und in eine JSON-Datei geschrieben
 
 router.post('/', (req, res, next) =>{
     
-    //var verfuegbareLebensmittel = req.query.lebensmittel;
+    var string = {verfuegbareLebensmittel : req.query.lebensmittel}; //in der Variable werden die Lebensmittel gespeichert, welche ueber den Queryparameter angegeben werden
     
-    //var string = JSON.stringify(obj);
-    var string = {verfuegbareLebensmittel : req.query.lebensmittel};
-    
-    string =  JSON.stringify(string);
+    string =  JSON.stringify(string); //Macht alle Zeichen der Variable zu einem String, wodurch man das JSON-Format erhält
 
-
+    //hier werden die verfuegbaren Lebensmittel in das JSON-File lebensmittelliste geschrieben
     fs.writeFile("lebensmittelliste.json", string, function(err) {
         if(err) {
             return console.log(err);
@@ -27,6 +26,7 @@ router.post('/', (req, res, next) =>{
         console.log("The file was saved!");
     });
 
+    //der Status-Code kommt wenn POST erfolgreich war
     res.status(201).json({
         message: 'Lebensmittel was created'
     });
